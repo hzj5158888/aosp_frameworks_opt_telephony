@@ -312,8 +312,6 @@ public class SubscriptionInfoUpdater extends Handler {
                 updateCarrierServices(msg.arg1, IccCardConstants.INTENT_VALUE_ICC_CARD_IO_ERROR);
                 break;
 
-<<<<<<< HEAD
-=======
             case EVENT_SET_PREFERRED_NW_MODE:
                 AsyncResult ar = (AsyncResult)msg.obj;
                 SetPreferredNwModeMessage mode = (SetPreferredNwModeMessage) ar.userObj;
@@ -328,7 +326,6 @@ public class SubscriptionInfoUpdater extends Handler {
                 }
                 break;
 
->>>>>>> b51f0cc... SubscriptionInfoUpdater: Unbreak usage of TelephonyPlugin
             default:
                 logd("Unknown msg:" + msg.what);
         }
