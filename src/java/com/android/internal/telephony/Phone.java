@@ -2132,6 +2132,12 @@ public interface Phone {
      */
     public void getModemActivityInfo(Message response);
 
+    /**
+     * Set MAX transmit power state
+     */
+    public void setMaxTransmitPower(int state, Message response);
+
+
     /** Request to update the current local call hold state.
      * @param lchStatus, true if call is in lch state
      */
