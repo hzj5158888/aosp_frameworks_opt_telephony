@@ -312,6 +312,7 @@ public class SubscriptionInfoUpdater extends Handler {
                 updateCarrierServices(msg.arg1, IccCardConstants.INTENT_VALUE_ICC_CARD_IO_ERROR);
                 break;
 
+<<<<<<< HEAD
             case EVENT_SET_PREFERRED_NW_MODE:
                 AsyncResult ar = (AsyncResult)msg.obj;
                 SetPreferredNwModeMessage mode = (SetPreferredNwModeMessage) ar.userObj;
@@ -326,6 +327,8 @@ public class SubscriptionInfoUpdater extends Handler {
                 }
                 break;
 
+=======
+>>>>>>> parent of 72466f8... SubscriptionInfoUpdater: Unbreak usage of TelephonyPlugin
             default:
                 logd("Unknown msg:" + msg.what);
         }
@@ -368,18 +371,7 @@ public class SubscriptionInfoUpdater extends Handler {
         }
     }
 
-<<<<<<< HEAD
     private void handleSimLoaded(int slotId) {
-=======
-    private void update(int slotId) {
-        sendMessageDelayed(obtainMessage(EVENT_UPDATE_INSERTED_SIM_COUNT, slotId), DELAY_MILLIS);
-        if (isAllIccIdQueryDone()) {
-            updateSubscriptionInfoByIccIdInternal(false);
-        }
-    }
-
-    protected void handleSimLoaded(int slotId) {
->>>>>>> b51f0cc... SubscriptionInfoUpdater: Unbreak usage of TelephonyPlugin
         logd("handleSimStateLoadedInternal: slotId: " + slotId);
 
         // The SIM should be loaded at this state, but it is possible in cases such as SIM being
@@ -525,21 +517,9 @@ public class SubscriptionInfoUpdater extends Handler {
      * only what the current list contains.
      */
     synchronized protected void updateSubscriptionInfoByIccId() {
-        updateSubscriptionInfoByIccIdInternal(true);
-    }
-
-    synchronized private void updateSubscriptionInfoByIccIdInternal(boolean forceUpdate) {
         logd("updateSubscriptionInfoByIccId:+ Start");
 
-<<<<<<< HEAD
         mSubscriptionManager.clearSubscriptionInfo();
-=======
-        // only update external state if we have no pending updates pending
-        boolean update = !hasMessages(EVENT_UPDATE_INSERTED_SIM_COUNT) || forceUpdate;
-        if (update) {
-            mSubscriptionManager.clearSubscriptionInfo();
-        }
->>>>>>> b51f0cc... SubscriptionInfoUpdater: Unbreak usage of TelephonyPlugin
 
         for (int i = 0; i < PROJECT_SIM_NUM; i++) {
             mInsertSimState[i] = SIM_NOT_CHANGE;

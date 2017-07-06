@@ -25,15 +25,12 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src/java) \
 	$(call all-logtags-files-under, src/java)
 
 LOCAL_JAVA_LIBRARIES := voip-common ims-common
-<<<<<<< HEAD
-=======
 LOCAL_REQUIRED_MODULES := telresources
 
 ifneq ($(BOARD_RIL_CLASS),)
 LOCAL_SRC_FILES += $(call find-other-java-files,$(BOARD_RIL_CLASS))
 endif
 
->>>>>>> 224bdc7... Squashed support for RIL subclass
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := telephony-common
 
