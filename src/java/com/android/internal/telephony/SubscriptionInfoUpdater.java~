@@ -311,6 +311,24 @@ public class SubscriptionInfoUpdater extends Handler {
             case EVENT_SIM_IO_ERROR:
                 updateCarrierServices(msg.arg1, IccCardConstants.INTENT_VALUE_ICC_CARD_IO_ERROR);
                 break;
+
+<<<<<<< HEAD
+            case EVENT_SET_PREFERRED_NW_MODE:
+                AsyncResult ar = (AsyncResult)msg.obj;
+                SetPreferredNwModeMessage mode = (SetPreferredNwModeMessage) ar.userObj;
+                setPreferredNwModeForSlot(mode.slotId, mode.subId, mode.networkType, null);
+                break;
+
+            case EVENT_UPDATE_INSERTED_SIM_COUNT:
+                logd("EVENT_UPDATE_INSERTED_SIM_COUNT: locked sims: " + mLockedSims.cardinality());
+                if (isAllIccIdQueryDone() && !hasMessages(EVENT_UPDATE_INSERTED_SIM_COUNT)) {
+                    updateSubscriptionInfoByIccIdInternal(false);
+                    logd("update inserted sim count, current sim count: " + mCurrentSimCount);
+                }
+                break;
+
+=======
+>>>>>>> parent of 72466f8... SubscriptionInfoUpdater: Unbreak usage of TelephonyPlugin
             default:
                 logd("Unknown msg:" + msg.what);
         }
